@@ -1,5 +1,4 @@
 ---
-
 - import_playbook: in-memory-inventory.yml
   tags:
     - inventory
