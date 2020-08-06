@@ -1,4 +1,9 @@
 ---
+- import_playbook: in-memory-inventory.yml
+  tags:
+    - inventory
+    - must
+
 - name: Teardown Postgres 10
   hosts: appdbs
   become: true

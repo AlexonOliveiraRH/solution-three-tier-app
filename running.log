@@ -1,0 +1,1360 @@
+ansible-playbook 2.9.11
+  config file = /home/alolivei-redhat.com/solution-three-tier-app/ansible.cfg
+  configured module search path = ['/home/alolivei-redhat.com/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/alolivei-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible
+  executable location = /home/alolivei-redhat.com/openstack-venv/bin/ansible-playbook
+  python version = 3.6.8 (default, Oct 11 2019, 15:04:54) [GCC 8.3.1 20190507 (Red Hat 8.3.1-4)]
+Using /home/alolivei-redhat.com/solution-three-tier-app/ansible.cfg as config file
+setting up inventory plugins
+host_list declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+script declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+auto declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Parsed /etc/ansible/hosts inventory source with ini plugin
+Loading callback plugin default of type stdout, v2.0 from /home/alolivei-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible/plugins/callback/default.py
+Loading callback plugin profile_tasks of type aggregate, v2.0 from /home/alolivei-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible/plugins/callback/profile_tasks.py
+Loading callback plugin timer of type aggregate, v2.0 from /home/alolivei-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible/plugins/callback/timer.py
+
+PLAYBOOK: site.yml *******************************************************************************************************************************************
+Positional arguments: site.yml
+verbosity: 4
+connection: smart
+timeout: 10
+become_method: sudo
+tags: ('all',)
+inventory: ('/etc/ansible/hosts',)
+forks: 5
+5 plays in site.yml
+
+PLAY [Generate in-memory inventory] **************************************************************************************************************************
+META: ran handlers
+
+TASK [Fetch Instance Info] ***********************************************************************************************************************************
+task path: /home/alolivei-redhat.com/solution-three-tier-app/in-memory-inventory.yml:10
+Thursday 06 August 2020  13:39:16 -0400 (0:00:00.096)       0:00:00.096 ******* 
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: alolivei-redhat.com
+<127.0.0.1> EXEC /bin/sh -c 'echo ~alolivei-redhat.com && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/alolivei-redhat.com/.ansible/tmp `"&& mkdir /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392 && echo ansible-tmp-1596735556.6272066-4723-123048168224392="` echo /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392 `" ) && sleep 0'
+Using module file /home/alolivei-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible/modules/cloud/openstack/os_server_info.py
+<127.0.0.1> PUT /home/alolivei-redhat.com/.ansible/tmp/ansible-local-4716u8rkv5wj/tmpn386res4 TO /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392/AnsiballZ_os_server_info.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392/ /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392/AnsiballZ_os_server_info.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/home/alolivei-redhat.com/openstack-venv/bin/python3 /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392/AnsiballZ_os_server_info.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/alolivei-redhat.com/.ansible/tmp/ansible-tmp-1596735556.6272066-4723-123048168224392/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "all_projects": false,
+            "api_timeout": null,
+            "auth": null,
+            "auth_type": null,
+            "availability_zone": null,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "detailed": false,
+            "filters": null,
+            "interface": "public",
+            "region_name": null,
+            "server": null,
+            "timeout": 180,
+            "validate_certs": null,
+            "wait": true
+        }
+    },
+    "openstack_servers": [
+        {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "db",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000004",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-mi4hheoq",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:10.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "accessIPv4": "192.0.2.195",
+            "accessIPv6": "",
+            "addresses": {
+                "int_network": [
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:28:71:3e",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "172.16.0.230",
+                        "version": 4
+                    },
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:28:71:3e",
+                        "OS-EXT-IPS:type": "floating",
+                        "addr": "192.0.2.195",
+                        "version": 4
+                    }
+                ]
+            },
+            "adminPass": null,
+            "az": "nova",
+            "block_device_mapping": null,
+            "cloud": "openstack",
+            "config_drive": "",
+            "created": "2020-08-05T20:31:54Z",
+            "created_at": "2020-08-05T20:31:54Z",
+            "description": "db",
+            "disk_config": "MANUAL",
+            "flavor": {
+                "disk": 20,
+                "ephemeral": 0,
+                "extra_specs": {},
+                "original_name": "m1.medium",
+                "ram": 2048,
+                "swap": 0,
+                "vcpus": 1
+            },
+            "has_config_drive": false,
+            "host": "overcloud-novacompute-1.localdomain",
+            "hostId": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+            "host_id": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+            "host_status": "UP",
+            "hostname": "db",
+            "hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "id": "40e62a3a-e892-4bcb-b71f-09c7f07db478",
+            "image": {
+                "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+            },
+            "instance_name": "instance-00000004",
+            "interface_ip": "192.0.2.195",
+            "kernel_id": "",
+            "key_name": "ansible_ssh",
+            "launch_index": 0,
+            "launched_at": "2020-08-05T20:32:10.000000",
+            "location": {
+                "cloud": "openstack",
+                "project": {
+                    "domain_id": null,
+                    "domain_name": null,
+                    "id": "4e07f423a12f437388a97a533bb9eef9",
+                    "name": "admin"
+                },
+                "region_name": "regionOne",
+                "zone": "nova"
+            },
+            "locked": false,
+            "metadata": {
+                "deployment_name": "QA",
+                "group": "appdbs"
+            },
+            "name": "db",
+            "networks": {},
+            "os-extended-volumes:volumes_attached": [],
+            "personality": null,
+            "power_state": 1,
+            "private_v4": "172.16.0.230",
+            "progress": 0,
+            "project_id": "4e07f423a12f437388a97a533bb9eef9",
+            "properties": {
+                "OS-DCF:diskConfig": "MANUAL",
+                "OS-EXT-AZ:availability_zone": "nova",
+                "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+                "OS-EXT-SRV-ATTR:hostname": "db",
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000004",
+                "OS-EXT-SRV-ATTR:kernel_id": "",
+                "OS-EXT-SRV-ATTR:launch_index": 0,
+                "OS-EXT-SRV-ATTR:ramdisk_id": "",
+                "OS-EXT-SRV-ATTR:reservation_id": "r-mi4hheoq",
+                "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+                "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+                "OS-EXT-STS:power_state": 1,
+                "OS-EXT-STS:task_state": null,
+                "OS-EXT-STS:vm_state": "active",
+                "OS-SCH-HNT:scheduler_hints": null,
+                "OS-SRV-USG:launched_at": "2020-08-05T20:32:10.000000",
+                "OS-SRV-USG:terminated_at": null,
+                "host_status": "UP",
+                "locked": false,
+                "os-extended-volumes:volumes_attached": [],
+                "trusted_image_certificates": null
+            },
+            "public_v4": "192.0.2.195",
+            "public_v6": "",
+            "ramdisk_id": "",
+            "region": "regionOne",
+            "reservation_id": "r-mi4hheoq",
+            "root_device_name": "/dev/vda",
+            "scheduler_hints": null,
+            "security_groups": [
+                {
+                    "name": "db"
+                }
+            ],
+            "server_groups": null,
+            "status": "ACTIVE",
+            "tags": [],
+            "task_state": null,
+            "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+            "terminated_at": null,
+            "trusted_image_certificates": null,
+            "updated": "2020-08-06T13:37:44Z",
+            "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "user_id": "407c91c92264417aaec09d86164807fd",
+            "vm_state": "active",
+            "volumes": []
+        },
+        {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app2",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000003",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-8ez02z4f",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:02.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "accessIPv4": "192.0.2.186",
+            "accessIPv6": "",
+            "addresses": {
+                "int_network": [
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:23:72:49",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "172.16.0.168",
+                        "version": 4
+                    },
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:23:72:49",
+                        "OS-EXT-IPS:type": "floating",
+                        "addr": "192.0.2.186",
+                        "version": 4
+                    }
+                ]
+            },
+            "adminPass": null,
+            "az": "nova",
+            "block_device_mapping": null,
+            "cloud": "openstack",
+            "config_drive": "",
+            "created": "2020-08-05T20:31:44Z",
+            "created_at": "2020-08-05T20:31:44Z",
+            "description": "app2",
+            "disk_config": "MANUAL",
+            "flavor": {
+                "disk": 20,
+                "ephemeral": 0,
+                "extra_specs": {},
+                "original_name": "m1.medium",
+                "ram": 2048,
+                "swap": 0,
+                "vcpus": 1
+            },
+            "has_config_drive": false,
+            "host": "overcloud-novacompute-0.localdomain",
+            "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+            "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+            "host_status": "UP",
+            "hostname": "app2",
+            "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "id": "694cb5f4-db22-4428-b658-48c4795480bb",
+            "image": {
+                "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+            },
+            "instance_name": "instance-00000003",
+            "interface_ip": "192.0.2.186",
+            "kernel_id": "",
+            "key_name": "ansible_ssh",
+            "launch_index": 0,
+            "launched_at": "2020-08-05T20:32:02.000000",
+            "location": {
+                "cloud": "openstack",
+                "project": {
+                    "domain_id": null,
+                    "domain_name": null,
+                    "id": "4e07f423a12f437388a97a533bb9eef9",
+                    "name": "admin"
+                },
+                "region_name": "regionOne",
+                "zone": "nova"
+            },
+            "locked": false,
+            "metadata": {
+                "deployment_name": "QA",
+                "group": "apps"
+            },
+            "name": "app2",
+            "networks": {},
+            "os-extended-volumes:volumes_attached": [],
+            "personality": null,
+            "power_state": 1,
+            "private_v4": "172.16.0.168",
+            "progress": 0,
+            "project_id": "4e07f423a12f437388a97a533bb9eef9",
+            "properties": {
+                "OS-DCF:diskConfig": "MANUAL",
+                "OS-EXT-AZ:availability_zone": "nova",
+                "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+                "OS-EXT-SRV-ATTR:hostname": "app2",
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000003",
+                "OS-EXT-SRV-ATTR:kernel_id": "",
+                "OS-EXT-SRV-ATTR:launch_index": 0,
+                "OS-EXT-SRV-ATTR:ramdisk_id": "",
+                "OS-EXT-SRV-ATTR:reservation_id": "r-8ez02z4f",
+                "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+                "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+                "OS-EXT-STS:power_state": 1,
+                "OS-EXT-STS:task_state": null,
+                "OS-EXT-STS:vm_state": "active",
+                "OS-SCH-HNT:scheduler_hints": null,
+                "OS-SRV-USG:launched_at": "2020-08-05T20:32:02.000000",
+                "OS-SRV-USG:terminated_at": null,
+                "host_status": "UP",
+                "locked": false,
+                "os-extended-volumes:volumes_attached": [],
+                "trusted_image_certificates": null
+            },
+            "public_v4": "192.0.2.186",
+            "public_v6": "",
+            "ramdisk_id": "",
+            "region": "regionOne",
+            "reservation_id": "r-8ez02z4f",
+            "root_device_name": "/dev/vda",
+            "scheduler_hints": null,
+            "security_groups": [
+                {
+                    "name": "apps"
+                }
+            ],
+            "server_groups": null,
+            "status": "ACTIVE",
+            "tags": [],
+            "task_state": null,
+            "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+            "terminated_at": null,
+            "trusted_image_certificates": null,
+            "updated": "2020-08-06T13:37:58Z",
+            "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "user_id": "407c91c92264417aaec09d86164807fd",
+            "vm_state": "active",
+            "volumes": []
+        },
+        {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app1",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-4ulah8k5",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:07.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "accessIPv4": "192.0.2.179",
+            "accessIPv6": "",
+            "addresses": {
+                "int_network": [
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:95:5d:a4",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "172.16.0.122",
+                        "version": 4
+                    },
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:95:5d:a4",
+                        "OS-EXT-IPS:type": "floating",
+                        "addr": "192.0.2.179",
+                        "version": 4
+                    }
+                ]
+            },
+            "adminPass": null,
+            "az": "nova",
+            "block_device_mapping": null,
+            "cloud": "openstack",
+            "config_drive": "",
+            "created": "2020-08-05T20:31:31Z",
+            "created_at": "2020-08-05T20:31:31Z",
+            "description": "app1",
+            "disk_config": "MANUAL",
+            "flavor": {
+                "disk": 20,
+                "ephemeral": 0,
+                "extra_specs": {},
+                "original_name": "m1.medium",
+                "ram": 2048,
+                "swap": 0,
+                "vcpus": 1
+            },
+            "has_config_drive": false,
+            "host": "overcloud-novacompute-1.localdomain",
+            "hostId": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+            "host_id": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+            "host_status": "UP",
+            "hostname": "app1",
+            "hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "id": "eb981332-1263-4309-b0ea-c10ee1d28458",
+            "image": {
+                "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+            },
+            "instance_name": "instance-00000002",
+            "interface_ip": "192.0.2.179",
+            "kernel_id": "",
+            "key_name": "ansible_ssh",
+            "launch_index": 0,
+            "launched_at": "2020-08-05T20:32:07.000000",
+            "location": {
+                "cloud": "openstack",
+                "project": {
+                    "domain_id": null,
+                    "domain_name": null,
+                    "id": "4e07f423a12f437388a97a533bb9eef9",
+                    "name": "admin"
+                },
+                "region_name": "regionOne",
+                "zone": "nova"
+            },
+            "locked": false,
+            "metadata": {
+                "deployment_name": "QA",
+                "group": "apps"
+            },
+            "name": "app1",
+            "networks": {},
+            "os-extended-volumes:volumes_attached": [],
+            "personality": null,
+            "power_state": 1,
+            "private_v4": "172.16.0.122",
+            "progress": 0,
+            "project_id": "4e07f423a12f437388a97a533bb9eef9",
+            "properties": {
+                "OS-DCF:diskConfig": "MANUAL",
+                "OS-EXT-AZ:availability_zone": "nova",
+                "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+                "OS-EXT-SRV-ATTR:hostname": "app1",
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+                "OS-EXT-SRV-ATTR:kernel_id": "",
+                "OS-EXT-SRV-ATTR:launch_index": 0,
+                "OS-EXT-SRV-ATTR:ramdisk_id": "",
+                "OS-EXT-SRV-ATTR:reservation_id": "r-4ulah8k5",
+                "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+                "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+                "OS-EXT-STS:power_state": 1,
+                "OS-EXT-STS:task_state": null,
+                "OS-EXT-STS:vm_state": "active",
+                "OS-SCH-HNT:scheduler_hints": null,
+                "OS-SRV-USG:launched_at": "2020-08-05T20:32:07.000000",
+                "OS-SRV-USG:terminated_at": null,
+                "host_status": "UP",
+                "locked": false,
+                "os-extended-volumes:volumes_attached": [],
+                "trusted_image_certificates": null
+            },
+            "public_v4": "192.0.2.179",
+            "public_v6": "",
+            "ramdisk_id": "",
+            "region": "regionOne",
+            "reservation_id": "r-4ulah8k5",
+            "root_device_name": "/dev/vda",
+            "scheduler_hints": null,
+            "security_groups": [
+                {
+                    "name": "apps"
+                }
+            ],
+            "server_groups": null,
+            "status": "ACTIVE",
+            "tags": [],
+            "task_state": null,
+            "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+            "terminated_at": null,
+            "trusted_image_certificates": null,
+            "updated": "2020-08-06T13:37:54Z",
+            "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "user_id": "407c91c92264417aaec09d86164807fd",
+            "vm_state": "active",
+            "volumes": []
+        },
+        {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "frontend",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-ervrpe9b",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:31:55.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "accessIPv4": "192.0.2.172",
+            "accessIPv6": "",
+            "addresses": {
+                "int_network": [
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:4c:15:df",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "172.16.0.241",
+                        "version": 4
+                    },
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:4c:15:df",
+                        "OS-EXT-IPS:type": "floating",
+                        "addr": "192.0.2.172",
+                        "version": 4
+                    }
+                ]
+            },
+            "adminPass": null,
+            "az": "nova",
+            "block_device_mapping": null,
+            "cloud": "openstack",
+            "config_drive": "",
+            "created": "2020-08-05T20:31:26Z",
+            "created_at": "2020-08-05T20:31:26Z",
+            "description": "frontend",
+            "disk_config": "MANUAL",
+            "flavor": {
+                "disk": 20,
+                "ephemeral": 0,
+                "extra_specs": {},
+                "original_name": "m1.medium",
+                "ram": 2048,
+                "swap": 0,
+                "vcpus": 1
+            },
+            "has_config_drive": false,
+            "host": "overcloud-novacompute-0.localdomain",
+            "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+            "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+            "host_status": "UP",
+            "hostname": "frontend",
+            "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "id": "63dd9ae4-0f7c-48d3-a343-8683eb22d9bf",
+            "image": {
+                "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+            },
+            "instance_name": "instance-00000001",
+            "interface_ip": "192.0.2.172",
+            "kernel_id": "",
+            "key_name": "ansible_ssh",
+            "launch_index": 0,
+            "launched_at": "2020-08-05T20:31:55.000000",
+            "location": {
+                "cloud": "openstack",
+                "project": {
+                    "domain_id": null,
+                    "domain_name": null,
+                    "id": "4e07f423a12f437388a97a533bb9eef9",
+                    "name": "admin"
+                },
+                "region_name": "regionOne",
+                "zone": "nova"
+            },
+            "locked": false,
+            "metadata": {
+                "deployment_name": "QA",
+                "group": "frontends"
+            },
+            "name": "frontend",
+            "networks": {},
+            "os-extended-volumes:volumes_attached": [],
+            "personality": null,
+            "power_state": 1,
+            "private_v4": "172.16.0.241",
+            "progress": 0,
+            "project_id": "4e07f423a12f437388a97a533bb9eef9",
+            "properties": {
+                "OS-DCF:diskConfig": "MANUAL",
+                "OS-EXT-AZ:availability_zone": "nova",
+                "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+                "OS-EXT-SRV-ATTR:hostname": "frontend",
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+                "OS-EXT-SRV-ATTR:kernel_id": "",
+                "OS-EXT-SRV-ATTR:launch_index": 0,
+                "OS-EXT-SRV-ATTR:ramdisk_id": "",
+                "OS-EXT-SRV-ATTR:reservation_id": "r-ervrpe9b",
+                "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+                "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+                "OS-EXT-STS:power_state": 1,
+                "OS-EXT-STS:task_state": null,
+                "OS-EXT-STS:vm_state": "active",
+                "OS-SCH-HNT:scheduler_hints": null,
+                "OS-SRV-USG:launched_at": "2020-08-05T20:31:55.000000",
+                "OS-SRV-USG:terminated_at": null,
+                "host_status": "UP",
+                "locked": false,
+                "os-extended-volumes:volumes_attached": [],
+                "trusted_image_certificates": null
+            },
+            "public_v4": "192.0.2.172",
+            "public_v6": "",
+            "ramdisk_id": "",
+            "region": "regionOne",
+            "reservation_id": "r-ervrpe9b",
+            "root_device_name": "/dev/vda",
+            "scheduler_hints": null,
+            "security_groups": [
+                {
+                    "name": "frontend"
+                }
+            ],
+            "server_groups": null,
+            "status": "ACTIVE",
+            "tags": [],
+            "task_state": null,
+            "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+            "terminated_at": null,
+            "trusted_image_certificates": null,
+            "updated": "2020-08-06T13:38:03Z",
+            "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "user_id": "407c91c92264417aaec09d86164807fd",
+            "vm_state": "active",
+            "volumes": []
+        }
+    ]
+}
+
+TASK [Add host] **********************************************************************************************************************************************
+task path: /home/alolivei-redhat.com/solution-three-tier-app/in-memory-inventory.yml:16
+Thursday 06 August 2020  13:39:18 -0400 (0:00:02.118)       0:00:02.215 ******* 
+creating host via 'add_host': hostname=192.0.2.195
+creating host via 'add_host': hostname=192.0.2.186
+creating host via 'add_host': hostname=192.0.2.179
+changed: [localhost] => (item={'id': '40e62a3a-e892-4bcb-b71f-09c7f07db478', 'name': 'db', 'flavor': {'vcpus': 1, 'ram': 2048, 'disk': 20, 'ephemeral': 0, 'swap': 0, 'original_name': 'm1.medium', 'extra_specs': {}}, 'image': {'id': '6842bd17-ae0f-467d-94ea-02054c613e38'}, 'block_device_mapping': None, 'location': {'cloud': 'openstack', 'region_name': 'regionOne', 'zone': 'nova', 'project': {'id': '4e07f423a12f437388a97a533bb9eef9', 'name': 'admin', 'domain_id': None, 'domain_name': None}}, 'volumes': [], 'has_config_drive': False, 'host_id': '26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2', 'progress': 0, 'disk_config': 'MANUAL', 'power_state': 1, 'task_state': None, 'vm_state': 'active', 'launched_at': '2020-08-05T20:32:10.000000', 'terminated_at': None, 'hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'instance_name': 'instance-00000004', 'user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'host': 'overcloud-novacompute-1.localdomain', 'hostname': 'db', 'kernel_id': '', 'launch_index': 0, 'ramdisk_id': '', 'reservation_id': 'r-mi4hheoq', 'root_device_name': '/dev/vda', 'scheduler_hints': None, 'security_groups': [{'name': 'db'}], 'created_at': '2020-08-05T20:31:54Z', 'accessIPv4': '192.0.2.195', 'accessIPv6': '', 'addresses': {'int_network': [{'version': 4, 'addr': '172.16.0.230', 'OS-EXT-IPS:type': 'fixed', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:28:71:3e'}, {'version': 4, 'addr': '192.0.2.195', 'OS-EXT-IPS:type': 'floating', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:28:71:3e'}]}, 'adminPass': None, 'created': '2020-08-05T20:31:54Z', 'description': 'db', 'key_name': 'ansible_ssh', 'metadata': {'group': 'appdbs', 'deployment_name': 'QA'}, 'networks': {}, 'personality': None, 'private_v4': '172.16.0.230', 'public_v4': '192.0.2.195', 'public_v6': '', 'server_groups': None, 'status': 'ACTIVE', 'updated': '2020-08-06T13:37:44Z', 'user_id': '407c91c92264417aaec09d86164807fd', 'tags': [], 'interface_ip': '192.0.2.195', 'properties': {'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-1.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'db', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000004', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:10.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-mi4hheoq', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}, 'hostId': '26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2', 'config_drive': '', 'project_id': '4e07f423a12f437388a97a533bb9eef9', 'tenant_id': '4e07f423a12f437388a97a533bb9eef9', 'region': 'regionOne', 'cloud': 'openstack', 'az': 'nova', 'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-1.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'db', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000004', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:10.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-mi4hheoq', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}) => {
+    "add_host": {
+        "groups": [
+            "appdbs",
+            "QA"
+        ],
+        "host_name": "192.0.2.195",
+        "host_vars": {
+            "group": [
+                "appdbs",
+                "QA"
+            ]
+        }
+    },
+    "ansible_loop_var": "item",
+    "changed": true,
+    "item": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "db",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000004",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-mi4hheoq",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2020-08-05T20:32:10.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.195",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:28:71:3e",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.230",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:28:71:3e",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.195",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2020-08-05T20:31:54Z",
+        "created_at": "2020-08-05T20:31:54Z",
+        "description": "db",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "original_name": "m1.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 1
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-1.localdomain",
+        "hostId": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+        "host_id": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+        "host_status": "UP",
+        "hostname": "db",
+        "hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+        "id": "40e62a3a-e892-4bcb-b71f-09c7f07db478",
+        "image": {
+            "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+        },
+        "instance_name": "instance-00000004",
+        "interface_ip": "192.0.2.195",
+        "kernel_id": "",
+        "key_name": "ansible_ssh",
+        "launch_index": 0,
+        "launched_at": "2020-08-05T20:32:10.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "metadata": {
+            "deployment_name": "QA",
+            "group": "appdbs"
+        },
+        "name": "db",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.230",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "db",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000004",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-mi4hheoq",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:10.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.195",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-mi4hheoq",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "name": "db"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2020-08-06T13:37:44Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+changed: [localhost] => (item={'id': '694cb5f4-db22-4428-b658-48c4795480bb', 'name': 'app2', 'flavor': {'vcpus': 1, 'ram': 2048, 'disk': 20, 'ephemeral': 0, 'swap': 0, 'original_name': 'm1.medium', 'extra_specs': {}}, 'image': {'id': '6842bd17-ae0f-467d-94ea-02054c613e38'}, 'block_device_mapping': None, 'location': {'cloud': 'openstack', 'region_name': 'regionOne', 'zone': 'nova', 'project': {'id': '4e07f423a12f437388a97a533bb9eef9', 'name': 'admin', 'domain_id': None, 'domain_name': None}}, 'volumes': [], 'has_config_drive': False, 'host_id': '9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf', 'progress': 0, 'disk_config': 'MANUAL', 'power_state': 1, 'task_state': None, 'vm_state': 'active', 'launched_at': '2020-08-05T20:32:02.000000', 'terminated_at': None, 'hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'instance_name': 'instance-00000003', 'user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'host': 'overcloud-novacompute-0.localdomain', 'hostname': 'app2', 'kernel_id': '', 'launch_index': 0, 'ramdisk_id': '', 'reservation_id': 'r-8ez02z4f', 'root_device_name': '/dev/vda', 'scheduler_hints': None, 'security_groups': [{'name': 'apps'}], 'created_at': '2020-08-05T20:31:44Z', 'accessIPv4': '192.0.2.186', 'accessIPv6': '', 'addresses': {'int_network': [{'version': 4, 'addr': '172.16.0.168', 'OS-EXT-IPS:type': 'fixed', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:23:72:49'}, {'version': 4, 'addr': '192.0.2.186', 'OS-EXT-IPS:type': 'floating', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:23:72:49'}]}, 'adminPass': None, 'created': '2020-08-05T20:31:44Z', 'description': 'app2', 'key_name': 'ansible_ssh', 'metadata': {'group': 'apps', 'deployment_name': 'QA'}, 'networks': {}, 'personality': None, 'private_v4': '172.16.0.168', 'public_v4': '192.0.2.186', 'public_v6': '', 'server_groups': None, 'status': 'ACTIVE', 'updated': '2020-08-06T13:37:58Z', 'user_id': '407c91c92264417aaec09d86164807fd', 'tags': [], 'interface_ip': '192.0.2.186', 'properties': {'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-0.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'app2', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000003', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:02.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-8ez02z4f', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}, 'hostId': '9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf', 'config_drive': '', 'project_id': '4e07f423a12f437388a97a533bb9eef9', 'tenant_id': '4e07f423a12f437388a97a533bb9eef9', 'region': 'regionOne', 'cloud': 'openstack', 'az': 'nova', 'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-0.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'app2', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000003', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:02.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-8ez02z4f', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}) => {
+    "add_host": {
+        "groups": [
+            "apps",
+            "QA"
+        ],
+        "host_name": "192.0.2.186",
+        "host_vars": {
+            "group": [
+                "apps",
+                "QA"
+            ]
+        }
+    },
+    "ansible_loop_var": "item",
+    "changed": true,
+    "item": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "app2",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000003",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-8ez02z4f",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2020-08-05T20:32:02.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.186",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:23:72:49",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.168",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:23:72:49",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.186",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2020-08-05T20:31:44Z",
+        "created_at": "2020-08-05T20:31:44Z",
+        "description": "app2",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "original_name": "m1.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 1
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "app2",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "694cb5f4-db22-4428-b658-48c4795480bb",
+        "image": {
+            "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+        },
+        "instance_name": "instance-00000003",
+        "interface_ip": "192.0.2.186",
+        "kernel_id": "",
+        "key_name": "ansible_ssh",
+        "launch_index": 0,
+        "launched_at": "2020-08-05T20:32:02.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "metadata": {
+            "deployment_name": "QA",
+            "group": "apps"
+        },
+        "name": "app2",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.168",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app2",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000003",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-8ez02z4f",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:02.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.186",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-8ez02z4f",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "name": "apps"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2020-08-06T13:37:58Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+creating host via 'add_host': hostname=192.0.2.172
+changed: [localhost] => (item={'id': 'eb981332-1263-4309-b0ea-c10ee1d28458', 'name': 'app1', 'flavor': {'vcpus': 1, 'ram': 2048, 'disk': 20, 'ephemeral': 0, 'swap': 0, 'original_name': 'm1.medium', 'extra_specs': {}}, 'image': {'id': '6842bd17-ae0f-467d-94ea-02054c613e38'}, 'block_device_mapping': None, 'location': {'cloud': 'openstack', 'region_name': 'regionOne', 'zone': 'nova', 'project': {'id': '4e07f423a12f437388a97a533bb9eef9', 'name': 'admin', 'domain_id': None, 'domain_name': None}}, 'volumes': [], 'has_config_drive': False, 'host_id': '26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2', 'progress': 0, 'disk_config': 'MANUAL', 'power_state': 1, 'task_state': None, 'vm_state': 'active', 'launched_at': '2020-08-05T20:32:07.000000', 'terminated_at': None, 'hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'instance_name': 'instance-00000002', 'user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'host': 'overcloud-novacompute-1.localdomain', 'hostname': 'app1', 'kernel_id': '', 'launch_index': 0, 'ramdisk_id': '', 'reservation_id': 'r-4ulah8k5', 'root_device_name': '/dev/vda', 'scheduler_hints': None, 'security_groups': [{'name': 'apps'}], 'created_at': '2020-08-05T20:31:31Z', 'accessIPv4': '192.0.2.179', 'accessIPv6': '', 'addresses': {'int_network': [{'version': 4, 'addr': '172.16.0.122', 'OS-EXT-IPS:type': 'fixed', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:95:5d:a4'}, {'version': 4, 'addr': '192.0.2.179', 'OS-EXT-IPS:type': 'floating', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:95:5d:a4'}]}, 'adminPass': None, 'created': '2020-08-05T20:31:31Z', 'description': 'app1', 'key_name': 'ansible_ssh', 'metadata': {'group': 'apps', 'deployment_name': 'QA'}, 'networks': {}, 'personality': None, 'private_v4': '172.16.0.122', 'public_v4': '192.0.2.179', 'public_v6': '', 'server_groups': None, 'status': 'ACTIVE', 'updated': '2020-08-06T13:37:54Z', 'user_id': '407c91c92264417aaec09d86164807fd', 'tags': [], 'interface_ip': '192.0.2.179', 'properties': {'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-1.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'app1', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000002', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:07.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-4ulah8k5', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}, 'hostId': '26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2', 'config_drive': '', 'project_id': '4e07f423a12f437388a97a533bb9eef9', 'tenant_id': '4e07f423a12f437388a97a533bb9eef9', 'region': 'regionOne', 'cloud': 'openstack', 'az': 'nova', 'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-1.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'app1', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-1.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000002', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:32:07.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-4ulah8k5', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}) => {
+    "add_host": {
+        "groups": [
+            "apps",
+            "QA"
+        ],
+        "host_name": "192.0.2.179",
+        "host_vars": {
+            "group": [
+                "apps",
+                "QA"
+            ]
+        }
+    },
+    "ansible_loop_var": "item",
+    "changed": true,
+    "item": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "app1",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-4ulah8k5",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2020-08-05T20:32:07.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.179",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:95:5d:a4",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.122",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:95:5d:a4",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.179",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2020-08-05T20:31:31Z",
+        "created_at": "2020-08-05T20:31:31Z",
+        "description": "app1",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "original_name": "m1.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 1
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-1.localdomain",
+        "hostId": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+        "host_id": "26c3d8074f9fab9d266b2a9243f2ee4f2531651afc35311e3290a8b2",
+        "host_status": "UP",
+        "hostname": "app1",
+        "hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+        "id": "eb981332-1263-4309-b0ea-c10ee1d28458",
+        "image": {
+            "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+        },
+        "instance_name": "instance-00000002",
+        "interface_ip": "192.0.2.179",
+        "kernel_id": "",
+        "key_name": "ansible_ssh",
+        "launch_index": 0,
+        "launched_at": "2020-08-05T20:32:07.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "metadata": {
+            "deployment_name": "QA",
+            "group": "apps"
+        },
+        "name": "app1",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.122",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app1",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-1.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-4ulah8k5",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:32:07.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.179",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-4ulah8k5",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "name": "apps"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2020-08-06T13:37:54Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+changed: [localhost] => (item={'id': '63dd9ae4-0f7c-48d3-a343-8683eb22d9bf', 'name': 'frontend', 'flavor': {'vcpus': 1, 'ram': 2048, 'disk': 20, 'ephemeral': 0, 'swap': 0, 'original_name': 'm1.medium', 'extra_specs': {}}, 'image': {'id': '6842bd17-ae0f-467d-94ea-02054c613e38'}, 'block_device_mapping': None, 'location': {'cloud': 'openstack', 'region_name': 'regionOne', 'zone': 'nova', 'project': {'id': '4e07f423a12f437388a97a533bb9eef9', 'name': 'admin', 'domain_id': None, 'domain_name': None}}, 'volumes': [], 'has_config_drive': False, 'host_id': '9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf', 'progress': 0, 'disk_config': 'MANUAL', 'power_state': 1, 'task_state': None, 'vm_state': 'active', 'launched_at': '2020-08-05T20:31:55.000000', 'terminated_at': None, 'hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'instance_name': 'instance-00000001', 'user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'host': 'overcloud-novacompute-0.localdomain', 'hostname': 'frontend', 'kernel_id': '', 'launch_index': 0, 'ramdisk_id': '', 'reservation_id': 'r-ervrpe9b', 'root_device_name': '/dev/vda', 'scheduler_hints': None, 'security_groups': [{'name': 'frontend'}], 'created_at': '2020-08-05T20:31:26Z', 'accessIPv4': '192.0.2.172', 'accessIPv6': '', 'addresses': {'int_network': [{'version': 4, 'addr': '172.16.0.241', 'OS-EXT-IPS:type': 'fixed', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:4c:15:df'}, {'version': 4, 'addr': '192.0.2.172', 'OS-EXT-IPS:type': 'floating', 'OS-EXT-IPS-MAC:mac_addr': 'fa:16:3e:4c:15:df'}]}, 'adminPass': None, 'created': '2020-08-05T20:31:26Z', 'description': 'frontend', 'key_name': 'ansible_ssh', 'metadata': {'group': 'frontends', 'deployment_name': 'QA'}, 'networks': {}, 'personality': None, 'private_v4': '172.16.0.241', 'public_v4': '192.0.2.172', 'public_v6': '', 'server_groups': None, 'status': 'ACTIVE', 'updated': '2020-08-06T13:38:03Z', 'user_id': '407c91c92264417aaec09d86164807fd', 'tags': [], 'interface_ip': '192.0.2.172', 'properties': {'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-0.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'frontend', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000001', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:31:55.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-ervrpe9b', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}, 'hostId': '9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf', 'config_drive': '', 'project_id': '4e07f423a12f437388a97a533bb9eef9', 'tenant_id': '4e07f423a12f437388a97a533bb9eef9', 'region': 'regionOne', 'cloud': 'openstack', 'az': 'nova', 'os-extended-volumes:volumes_attached': [], 'OS-EXT-AZ:availability_zone': 'nova', 'OS-EXT-SRV-ATTR:host': 'overcloud-novacompute-0.localdomain', 'OS-DCF:diskConfig': 'MANUAL', 'host_status': 'UP', 'OS-EXT-SRV-ATTR:hostname': 'frontend', 'OS-EXT-SRV-ATTR:hypervisor_hostname': 'overcloud-novacompute-0.localdomain', 'OS-EXT-SRV-ATTR:instance_name': 'instance-00000001', 'locked': False, 'OS-EXT-SRV-ATTR:kernel_id': '', 'OS-EXT-SRV-ATTR:launch_index': 0, 'OS-SRV-USG:launched_at': '2020-08-05T20:31:55.000000', 'OS-EXT-STS:power_state': 1, 'OS-EXT-SRV-ATTR:ramdisk_id': '', 'OS-EXT-SRV-ATTR:reservation_id': 'r-ervrpe9b', 'OS-EXT-SRV-ATTR:root_device_name': '/dev/vda', 'OS-SCH-HNT:scheduler_hints': None, 'OS-EXT-STS:task_state': None, 'OS-SRV-USG:terminated_at': None, 'trusted_image_certificates': None, 'OS-EXT-SRV-ATTR:user_data': 'IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==', 'OS-EXT-STS:vm_state': 'active'}) => {
+    "add_host": {
+        "groups": [
+            "frontends",
+            "QA"
+        ],
+        "host_name": "192.0.2.172",
+        "host_vars": {
+            "group": [
+                "frontends",
+                "QA"
+            ]
+        }
+    },
+    "ansible_loop_var": "item",
+    "changed": true,
+    "item": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "frontend",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-ervrpe9b",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2020-08-05T20:31:55.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.172",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:4c:15:df",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.241",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:4c:15:df",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.172",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2020-08-05T20:31:26Z",
+        "created_at": "2020-08-05T20:31:26Z",
+        "description": "frontend",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "original_name": "m1.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 1
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "frontend",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "63dd9ae4-0f7c-48d3-a343-8683eb22d9bf",
+        "image": {
+            "id": "6842bd17-ae0f-467d-94ea-02054c613e38"
+        },
+        "instance_name": "instance-00000001",
+        "interface_ip": "192.0.2.172",
+        "kernel_id": "",
+        "key_name": "ansible_ssh",
+        "launch_index": 0,
+        "launched_at": "2020-08-05T20:31:55.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "metadata": {
+            "deployment_name": "QA",
+            "group": "frontends"
+        },
+        "name": "frontend",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.241",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "frontend",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-ervrpe9b",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2020-08-05T20:31:55.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.172",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-ervrpe9b",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "name": "frontend"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2020-08-06T13:38:03Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY [Deploy Common repos] ***********************************************************************************************************************************
+META: ran handlers
+
+TASK [Copy repo file] ****************************************************************************************************************************************
+task path: /home/alolivei-redhat.com/solution-three-tier-app/common.yml:11
+Thursday 06 August 2020  13:39:18 -0400 (0:00:00.150)       0:00:02.366 ******* 
+<192.0.2.186> ESTABLISH SSH CONNECTION FOR USER: heat-admin
+<192.0.2.186> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="heat-admin"' -o ConnectTimeout=10 -o ControlPath=/home/alolivei-redhat.com/.ansible/cp/6ec1eaaaff 192.0.2.186 '/bin/sh -c '"'"'echo ~heat-admin && sleep 0'"'"''
+<192.0.2.179> ESTABLISH SSH CONNECTION FOR USER: heat-admin
+<192.0.2.179> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="heat-admin"' -o ConnectTimeout=10 -o ControlPath=/home/alolivei-redhat.com/.ansible/cp/a9f205acc8 192.0.2.179 '/bin/sh -c '"'"'echo ~heat-admin && sleep 0'"'"''
+<192.0.2.172> ESTABLISH SSH CONNECTION FOR USER: heat-admin
+<192.0.2.172> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="heat-admin"' -o ConnectTimeout=10 -o ControlPath=/home/alolivei-redhat.com/.ansible/cp/8dcf14bbd8 192.0.2.172 '/bin/sh -c '"'"'echo ~heat-admin && sleep 0'"'"''
+<192.0.2.195> ESTABLISH SSH CONNECTION FOR USER: heat-admin
+<192.0.2.195> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="heat-admin"' -o ConnectTimeout=10 -o ControlPath=/home/alolivei-redhat.com/.ansible/cp/9a27034dbb 192.0.2.195 '/bin/sh -c '"'"'echo ~heat-admin && sleep 0'"'"''
+<192.0.2.186> (255, b'', b'OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.186 originally 192.0.2.186\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched \'final\'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.186 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.186 originally 192.0.2.186\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched \'final\'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/alolivei-redhat.com/.ansible/cp/6ec1eaaaff" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.186 [192.0.2.186] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9979 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.186:22 as \'heat-admin\'\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:qLtx09fwlLii0Gj98aePiWuzwtc2Q1LRIZaGBvfnzzo\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\nWarning: Permanently added \'192.0.2.186\' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.186: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\n')
+fatal: [192.0.2.186]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.186 originally 192.0.2.186\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.186 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.186 originally 192.0.2.186\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/alolivei-redhat.com/.ansible/cp/6ec1eaaaff\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.186 [192.0.2.186] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9979 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.186:22 as 'heat-admin'\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:qLtx09fwlLii0Gj98aePiWuzwtc2Q1LRIZaGBvfnzzo\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\nWarning: Permanently added '192.0.2.186' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.186: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+<192.0.2.195> (255, b'', b'OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.195 originally 192.0.2.195\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched \'final\'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.195 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.195 originally 192.0.2.195\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched \'final\'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/alolivei-redhat.com/.ansible/cp/9a27034dbb" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.195 [192.0.2.195] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9988 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.195:22 as \'heat-admin\'\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:Y4EjwO0ONXY8EiK7nVMUEVstow3FBjSBISQnVapPWbg\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\nWarning: Permanently added \'192.0.2.195\' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.195: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\n')
+fatal: [192.0.2.195]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.195 originally 192.0.2.195\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.195 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.195 originally 192.0.2.195\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/alolivei-redhat.com/.ansible/cp/9a27034dbb\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.195 [192.0.2.195] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9988 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.195:22 as 'heat-admin'\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:Y4EjwO0ONXY8EiK7nVMUEVstow3FBjSBISQnVapPWbg\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\nWarning: Permanently added '192.0.2.195' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.195: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+<192.0.2.179> (255, b'', b'OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.179 originally 192.0.2.179\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched \'final\'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.179 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.179 originally 192.0.2.179\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched \'final\'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/alolivei-redhat.com/.ansible/cp/a9f205acc8" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.179 [192.0.2.179] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9986 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.179:22 as \'heat-admin\'\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:3Y8UcRlJo8JavZU9s5rGBtkpzEGYLE3+cnjIlDMY8Xo\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\nWarning: Permanently added \'192.0.2.179\' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.179: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\n')
+fatal: [192.0.2.179]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.179 originally 192.0.2.179\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.179 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.179 originally 192.0.2.179\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/alolivei-redhat.com/.ansible/cp/a9f205acc8\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.179 [192.0.2.179] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9986 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.179:22 as 'heat-admin'\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:3Y8UcRlJo8JavZU9s5rGBtkpzEGYLE3+cnjIlDMY8Xo\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\nWarning: Permanently added '192.0.2.179' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.179: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+<192.0.2.172> (255, b'', b'OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.172 originally 192.0.2.172\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched \'final\'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.172 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for \'final all\' host 192.0.2.172 originally 192.0.2.172\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched \'final\'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/alolivei-redhat.com/.ansible/cp/8dcf14bbd8" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.172 [192.0.2.172] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9982 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.172:22 as \'heat-admin\'\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:CeyygAd2yJVMo8weib06CAf48hvJqYF+dShjZnrkZHE\r\ndebug3: hostkeys_foreach: reading file "/dev/null"\r\nWarning: Permanently added \'192.0.2.172\' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.172: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\n')
+fatal: [192.0.2.172]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.172 originally 192.0.2.172\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: not matched 'final'\r\ndebug2: match not found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1 (parse only)\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: configuration requests final Match pass\r\ndebug2: resolve_canonicalize: hostname 192.0.2.172 is address\r\ndebug1: re-parsing configuration\r\ndebug1: Reading configuration data /home/alolivei-redhat.com/.ssh/config\r\ndebug1: /home/alolivei-redhat.com/.ssh/config line 1: Applying options for *\r\ndebug2: add_identity_file: ignoring duplicate key ~/.ssh/openstack.pem\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug3: /etc/ssh/ssh_config line 51: Including file /etc/ssh/ssh_config.d/05-redhat.conf depth 0\r\ndebug1: Reading configuration data /etc/ssh/ssh_config.d/05-redhat.conf\r\ndebug2: checking match for 'final all' host 192.0.2.172 originally 192.0.2.172\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 3: matched 'final'\r\ndebug2: match found\r\ndebug3: /etc/ssh/ssh_config.d/05-redhat.conf line 5: Including file /etc/crypto-policies/back-ends/openssh.config depth 1\r\ndebug1: Reading configuration data /etc/crypto-policies/back-ends/openssh.config\r\ndebug3: gss kex names ok: [gss-gex-sha1-,gss-group14-sha1-]\r\ndebug3: kex names ok: [curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1]\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/alolivei-redhat.com/.ansible/cp/8dcf14bbd8\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.0.2.172 [192.0.2.172] port 22.\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: fd 4 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9982 ms remain after connect\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem type -1\r\ndebug1: identity file /home/alolivei-redhat.com/.ssh/openstack.pem-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.0\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.0.2.172:22 as 'heat-admin'\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: ciphers stoc: aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: aes256-gcm@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug1: kex: curve25519-sha256 need=32 dh_need=32\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:CeyygAd2yJVMo8weib06CAf48hvJqYF+dShjZnrkZHE\r\ndebug3: hostkeys_foreach: reading file \"/dev/null\"\r\nWarning: Permanently added '192.0.2.172' (ECDSA) to the list of known hosts.\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 4294967296 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 4294967296 blocks\r\ndebug1: Will attempt key: /home/alolivei-redhat.com/.ssh/openstack.pem  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled gssapi-with-mic\r\ndebug1: Next authentication method: gssapi-with-mic\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug1: Unspecified GSS failure.  Minor code may provide more information\nNo Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)\n\n\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/alolivei-redhat.com/.ssh/openstack.pem\r\ndebug3: sign_and_send_pubkey: RSA SHA256:43bgkl8RW/4F0bGty9liJ5TK9D7b/QIbbmj92tC7B9g\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-256\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic\r\ndebug2: we did not send a packet, disable method\r\ndebug1: No more authentication methods to try.\r\nheat-admin@192.0.2.172: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+
+PLAY RECAP ***************************************************************************************************************************************************
+192.0.2.172                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+192.0.2.179                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+192.0.2.186                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+192.0.2.195                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Thursday 06 August 2020  13:39:19 -0400 (0:00:00.208)       0:00:02.574 ******* 
+=============================================================================== 
+Fetch Instance Info ----------------------------------------------------------------------------------------------------------------------------------- 2.12s
+/home/alolivei-redhat.com/solution-three-tier-app/in-memory-inventory.yml:10 --------------------------------------------------------------------------------
+Copy repo file ---------------------------------------------------------------------------------------------------------------------------------------- 0.21s
+/home/alolivei-redhat.com/solution-three-tier-app/common.yml:11 ---------------------------------------------------------------------------------------------
+Add host ---------------------------------------------------------------------------------------------------------------------------------------------- 0.15s
+/home/alolivei-redhat.com/solution-three-tier-app/in-memory-inventory.yml:16 --------------------------------------------------------------------------------
+Playbook run took 0 days, 0 hours, 0 minutes, 2 seconds
